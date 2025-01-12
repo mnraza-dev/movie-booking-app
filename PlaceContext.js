@@ -1,9 +1,9 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 const Place = createContext();
 
 const PlaceContext = ({ children }) => {
-  const [selectedCity, setSelectedCity] = useState([]);
+  const [selectedCity, setSelectedCity] = useState(["Delhi", "Mumbai"]);
   return (
     <Place.Provider value={{ selectedCity, setSelectedCity }}>
       {children}

@@ -35,6 +35,8 @@ function ProfileStackScreen() {
     </ProfileStack.Navigator>
   );
 }
+
+
 const Tabs = createBottomTabNavigator();
 function Navigation() {
   return (
