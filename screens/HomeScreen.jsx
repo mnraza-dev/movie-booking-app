@@ -13,7 +13,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { Place } from "../PlaceContext";
 // import movieData from "../movieData";
 import MovieCard from "../components/MovieCard";
-
+import Header from "../components/Header";
 const HomeScreen = () => {
   const navigation = useNavigation();
   const moveAnimations = new Animated.Value(0);
@@ -127,13 +127,15 @@ const HomeScreen = () => {
     },
   ];
 
-  const renderItem = ({ item }) => (
-   <MovieCard item={item} />
-  );
+  const renderItem = ({ item }) => <MovieCard item={item} />;
 
   return (
     <View style={{ flex: 1 }}>
       <FlatList
+        columnWrapperStyle={{ justifyContent: "space-between" }}
+        numColumns={2}
+        showsVerticalScrollIndicator={false}
+        ListHeaderComponent={Header}
         data={data}
         keyExtractor={(item) => item.id.toString()}
         renderItem={renderItem}

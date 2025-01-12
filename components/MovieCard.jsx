@@ -18,6 +18,8 @@ const MovieCard = ({ item }) => {
 
 const styles = StyleSheet.create({
   card: {
+    width: "100%",
+    height: 250,
     marginBottom: 20,
     padding: 10,
     backgroundColor: "#fff",
