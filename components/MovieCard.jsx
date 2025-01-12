@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 
-const Header = () => {
+const MovieCard = () => {
   return (
     <View>
-      <Text>Header</Text>
+      <Text>MovieCard</Text>
     </View>
   )
 }
 
-export default Header
+export default MovieCard
 
 const styles = StyleSheet.create({})
