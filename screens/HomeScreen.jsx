@@ -11,6 +11,8 @@ import React, { useContext, useEffect, useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Place } from "../PlaceContext";
+// import movieData from "../movieData";
+import MovieCard from "../components/MovieCard";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
@@ -126,16 +128,7 @@ const HomeScreen = () => {
   ];
 
   const renderItem = ({ item }) => (
-    <View style={styles.card}>
-      <Image
-        style={styles.poster}
-        source={{
-          uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`, // Correct URL construction
-        }}
-      />
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.releaseDate}>{item.release_date}</Text>
-    </View>
+   <MovieCard item={item} />
   );
 
   return (

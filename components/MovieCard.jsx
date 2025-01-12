@@ -1,14 +1,47 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { Image, StyleSheet, Text, View } from "react-native";
+import React from "react";
 
-const MovieCard = () => {
+const MovieCard = ({ item }) => {
   return (
-    <View>
-      <Text>MovieCard</Text>
+    <View style={styles.card}>
+      <Image
+        style={styles.poster}
+        source={{
+          uri: `https://image.tmdb.org/t/p/w500${item.poster_path}`, // Correct URL construction
+        }}
+      />
+      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.releaseDate}>{item.release_date}</Text>
     </View>
-  )
-}
+  );
+};
 
-export default MovieCard
+const styles = StyleSheet.create({
+  card: {
+    marginBottom: 20,
+    padding: 10,
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 4,
+  },
+  poster: {
+    width: "100%",
+    height: 200,
+    borderRadius: 10,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginTop: 10,
+  },
+  releaseDate: {
+    marginTop: 5,
+    fontSize: 14,
+    color: "#555",
+  },
+});
 
-const styles = StyleSheet.create({})
+export default MovieCard;
