@@ -37,29 +37,27 @@ function Navigation() {
             tabBarLabel: "Home",
             tabBarLabelStyle: { color: "black" },
             headerShown: false,
-            tabBarIcon: ({ focused }) => {
+            tabBarIcon: ({ focused }) =>
               focused ? (
                 <Entypo name="home" size={24} color="black" />
               ) : (
                 <AntDesign name="home" size={24} color="black" />
-              );
-            },
+              ),
           }}
         />
         <Tabs.Screen
-          name="Profile"
+          name="ProfileScreen"
           component={ProfileStackScreen}
           options={{
             tabBarLabel: "Profile",
             tabBarLabelStyle: { color: "black" },
             headerShown: false,
-            tabBarIcon: ({ focused }) => {
+            tabBarIcon: ({ focused }) =>
               focused ? (
                 <Ionicons name="person" size={24} color="black" />
               ) : (
                 <Ionicons name="person-outline" size={24} color="black" />
-              );
-            },
+              ),
           }}
         />
       </Tabs.Navigator>
@@ -67,4 +65,4 @@ function Navigation() {
   );
 }
 
-export default Navigation
+export default Navigation;
