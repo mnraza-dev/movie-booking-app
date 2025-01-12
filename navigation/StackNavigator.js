@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
-import Profile from "../screens/Profile";
+import PlacesScreen from "../screens/PlacesScreen";
+import Profile from "../screens/ProfileScreen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import Entypo from "@expo/vector-icons/Entypo";
@@ -13,7 +14,16 @@ const HomeStack = createNativeStackNavigator();
 function HomeStackScreen() {
   return (
     <HomeStack.Navigator>
-      <HomeStack.Screen options={{title: ""}} name="HomeScreen" component={HomeScreen} />
+      <HomeStack.Screen
+        options={{ title: "" }}
+        name="HomeScreen"
+        component={HomeScreen}
+      />
+      <HomeStack.Screen
+        options={{ title: "" }}
+        name="Places"
+        component={PlacesScreen}
+      />
     </HomeStack.Navigator>
   );
 }

@@ -1,10 +1,22 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import React, { useLayoutEffect } from "react";
+import { Animated, Pressable, StyleSheet, Text, View } from "react-native";
+import React, { useEffect, useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const moveAnimations = new Animated.Value(0);
+
+  useEffect(() => {
+    Animated.loop(
+      Animated.timing(moveAnimations, {
+        toValue: -11,
+        duration: 3000,
+        useNativeDriver: false,
+      })
+    ).start();
+  }, [moveAnimations]);
+
   useLayoutEffect(() => {
     navigation.setOptions({
       headerLeft: () => <Text>Hello, MN Raza !</Text>,
@@ -17,7 +29,22 @@ const HomeScreen = () => {
           }}
         >
           <Ionicons name="notifications-outline" size={24} color="black" />
-          <Ionicons name="location-outline" size={24} color="black" />
+          <Ionicons
+            onPress={() => navigation.navigate("Places")}
+            name="location-outline"
+            size={24}
+            color="black"
+          />
+          <Pressable onPress={() => navigation.navigate("Places")}>
+            <Animated.Text
+              style={[
+                styles.text,
+                { transform: [{ translateX: moveAnimations }] },
+              ]}
+            >
+              <Text>Bhopal</Text>
+            </Animated.Text>
+          </Pressable>
         </Pressable>
       ),
       headerStyle: {
@@ -40,4 +67,8 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  text: {
+    color: "black",
+  },
+});
