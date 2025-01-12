@@ -22,16 +22,16 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 168,
     margin: 10,
-    height: 120, // Fixed height for visibility
+    height: 120, 
     borderRadius: 10,
-    overflow: "hidden", // Ensures image stays within rounded corners
+    overflow: "hidden",
+    opacity: 0.9,
   },
   overlay: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent overlay
-  },
+    backgroundColor: "rgba(0, 0, 0, 0.5)",   },
   cityName: {
     position: "absolute",
     bottom: 10,

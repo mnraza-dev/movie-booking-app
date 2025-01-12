@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View, FlatList } from "react-native";
+import { Pressable, StyleSheet, Text, View, FlatList, ScrollView } from "react-native";
 import React, { useContext, useState, useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
@@ -85,14 +85,25 @@ const PlacesScreen = () => {
       image:
         "https://imgs.search.brave.com/KbAEiCbfBK7yv_NYtliFlFdA_940t7t-GburkacFNrs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAzLzYwLzg5LzA5/LzM2MF9GXzM2MDg5/MDk5MV9Za3liajVK/TzVIWUJhcVdlUk96/OWNSMmpXWE44SFp4/Zi5qcGc",
     },
+
+    {
+      id: "8",
+      name: "Kolkata",
+      image:
+        "https://imgs.search.brave.com/AYrbQ059_jVuKPUYagW1tUYBGQDCeNjpOV1xmhXyprg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTIy/OTg4NzkxL2VzL2Zv/dG8vaG93cmFoLWJy/aWRnZS1vdmVyLXJp/dmVyLWdhbmdhLWF0/LWxhdGUtZXZlbmlu/Zy5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9czdwTzBURkFV/dkZxRENCclFOcWdU/WkhabmRXVEhIRE9y/T2hKOUthX25Tdz0",
+    },
+    {
+      id: "9",
+      name: "Jaipur",
+      image:"https://imgs.search.brave.com/OxzFwSjx_PJrzxKrRV7QTlINFsdMmB7RjAjAUpx8t50/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODY3OTg0Mi9waG90/by9ldmUtZXhwZW5z/aXZlLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1nOGgxcGVw/N0dXUkpwTWxEUTV4/RHhVbE8tN3VOUFNs/V0E5N2JBSXFOMGxB/PQ"
+    }
   ];
 
   return (
     <View
-
       style={{
-        // flex: 1,
-       paddingHorizontal: 8,
+        flex: 1,
+        paddingHorizontal: 8,
         backgroundColor: "#f5f5f5",
       }}
     >
@@ -116,11 +127,11 @@ const PlacesScreen = () => {
       </Text>
 
       <FlatList
-      columnWrapperStyle={{ justifyContent: "space-between" }}
+        columnWrapperStyle={{ justifyContent: "space-between" }}
         numColumns={2}
         showsVerticalScrollIndicator={false}
         data={cities}
-        keyExtractor={(item) => item.id} 
+        keyExtractor={(item) => item.id}
         renderItem={({ item }) => <CityCard city={item} />}
         contentContainerStyle={styles.list}
       />
