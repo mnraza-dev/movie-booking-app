@@ -3,7 +3,9 @@ import HomeScreen from "../screens/HomeScreen";
 import Profile from "../screens/Profile";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import Entypo from '@expo/vector-icons/Entypo';
+import Entypo from "@expo/vector-icons/Entypo";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 const ProfileStack = createNativeStackNavigator();
 const HomeStack = createNativeStackNavigator();
@@ -35,22 +37,29 @@ function Navigation() {
             tabBarLabel: "Home",
             tabBarLabelStyle: { color: "black" },
             headerShown: false,
-            tabBarIcon: ({focused}) => {
-                focused ? (
-<Entypo name="home" size={24} color="black" />
-                ):( 
-
-                )
-                
-            }
+            tabBarIcon: ({ focused }) => {
+              focused ? (
+                <Entypo name="home" size={24} color="black" />
+              ) : (
+                <AntDesign name="home" size={24} color="black" />
+              );
+            },
           }}
         />
         <Tabs.Screen
           name="Profile"
           component={ProfileStackScreen}
           options={{
-            tabBarLabel: "Home",
+            tabBarLabel: "Profile",
             tabBarLabelStyle: { color: "black" },
+            headerShown: false,
+            tabBarIcon: ({ focused }) => {
+              focused ? (
+                <Ionicons name="person" size={24} color="black" />
+              ) : (
+                <Ionicons name="person-outline" size={24} color="black" />
+              );
+            },
           }}
         />
       </Tabs.Navigator>
@@ -58,4 +67,4 @@ function Navigation() {
   );
 }
 
-export { HomeStackScreen, ProfileStackScreen };
+export default Navigation
