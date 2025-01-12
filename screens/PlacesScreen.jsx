@@ -96,6 +96,11 @@ const PlacesScreen = () => {
       id: "9",
       name: "Jaipur",
       image:"https://imgs.search.brave.com/OxzFwSjx_PJrzxKrRV7QTlINFsdMmB7RjAjAUpx8t50/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTEz/ODY3OTg0Mi9waG90/by9ldmUtZXhwZW5z/aXZlLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1nOGgxcGVw/N0dXUkpwTWxEUTV4/RHhVbE8tN3VOUFNs/V0E5N2JBSXFOMGxB/PQ"
+    },
+    {
+      id: "10",
+      name: "Ranchi",
+      image: 'https://imgs.search.brave.com/FS69hRtaS1ulIm6U8nh5dsk7RSPBdrUzgRJDWOj6n80/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8w/LzBiL1JhbmNoaV9B/aXJwb3J0X05pZ2h0/X1ZpZXcuanBn'
     }
   ];
 
@@ -132,7 +137,7 @@ const PlacesScreen = () => {
         showsVerticalScrollIndicator={false}
         data={cities}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => <CityCard city={item} />}
+        renderItem={({ item }) => <CityCard city={item} selectedCity={selectedCity} setSelectedCity={setSelectedCity} />}
         contentContainerStyle={styles.list}
       />
     </View>

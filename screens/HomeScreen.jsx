@@ -1,11 +1,13 @@
 import { Animated, Pressable, StyleSheet, Text, View } from "react-native";
-import React, { useEffect, useLayoutEffect } from "react";
+import React, { useContext, useEffect, useLayoutEffect } from "react";
 import { useNavigation } from "@react-navigation/native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { Place } from "../PlaceContext";
 
 const HomeScreen = () => {
   const navigation = useNavigation();
   const moveAnimations = new Animated.Value(0);
+  const {selectedCity, setSelectedCity} = useContext(Place);
 
   useEffect(() => {
     Animated.loop(
@@ -42,7 +44,7 @@ const HomeScreen = () => {
                 { transform: [{ translateX: moveAnimations }] },
               ]}
             >
-              <Text>Bhopal</Text>
+              <Text>{selectedCity}</Text>
             </Animated.Text>
           </Pressable>
         </Pressable>
